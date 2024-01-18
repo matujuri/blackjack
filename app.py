@@ -40,7 +40,7 @@ def update_game_state(game_state):
 
 @app.route('/')
 def index():
-    return '<a href="/play">Start Game</a>'
+    return f'<pre>{logo}</pre><br><a href="/play">Start Game</a>'
 
 
 @app.route('/play', methods=['GET', 'POST'])
