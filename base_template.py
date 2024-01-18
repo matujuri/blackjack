@@ -42,6 +42,12 @@ base_template = '''
         a:hover, button:hover {
             background-color: #0056b3;
         }
+        .logo {
+            font-size: 10px; /* ロゴのフォントサイズを小さくする */
+            line-height: 1; /* 行間隔を詰める */
+            white-space: pre; /* フォーマットを保持する */
+            overflow-x: auto; /* 必要に応じてスクロール可能にする */
+        }
     </style>
 </head>
 <body>
