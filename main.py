@@ -26,7 +26,7 @@ def compare(player_score, dealer_score):
     """check final scores and declare winner"""
     if player_score == dealer_score:
         return "draw"
-    elif player_score == 0 or dealer_score > 21 or player_score > dealer_score:
+    elif player_score == 0 or dealer_score > 21 or (player_score < 21 and player_score > dealer_score):
         return "win"
     else:
         return "lose"
