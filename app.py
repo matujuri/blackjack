@@ -1,7 +1,7 @@
 from flask import Flask, request, render_template_string, session
-import random
-from art import logo
 from main import deal_card, calculate_score, compare
+from base_template import base_template
+from art import logo
 
 app = Flask(__name__)
 app.secret_key = 'your_secret_key'
@@ -40,7 +40,8 @@ def update_game_state(game_state):
 
 @app.route('/')
 def index():
-    return f'<pre>{logo}</pre><br><a href="/play">Start Game</a>'
+    content = '<a href="/play">Start Game</a>'
+    return base_template.replace('{{ logo }}', logo).replace('{{ content }}', content)
 
 
 @app.route('/play', methods=['GET', 'POST'])
@@ -62,40 +63,28 @@ def play():
         session['game_state'] = game_state
 
         if game_state['game_over']:
-            return render_template_string(end_game_template, game_state=game_state, logo=logo)
+            return render_template_string(base_template.replace('{{ logo }}', logo).replace('{{ content }}', end_game_template), game_state=game_state)
         else:
-            return render_template_string(game_template, game_state=game_state, logo=logo)
+            return render_template_string(base_template.replace('{{ logo }}', logo).replace('{{ content }}', game_template), game_state=game_state)
     else:
         session['game_state'] = initialize_game()
-        return render_template_string(game_template, game_state=session['game_state'], logo=logo)
+        return render_template_string(base_template.replace('{{ logo }}', logo).replace('{{ content }}', game_template), game_state=session['game_state'])
 
 
 game_template = '''
-<html>
-<body>
-    <!-- Game interface -->
-    <pre>{{ logo }}</pre>
-    <p>Your Cards: {{ game_state.player_cards }} (Score: {{ game_state.player_score }})</p>
-    <p>Dealer's First Card: {{ game_state.dealer_cards[0] }}</p>
-    <form method="post">
-        <button name="action" value="hit">Hit</button>
-        <button name="action" value="stand">Stand</button>
-    </form>
-</body>
-</html>
+<p>Your Cards: {{ game_state.player_cards }} (Score: {{ game_state.player_score }})</p>
+<p>Dealer's First Card: {{ game_state.dealer_cards[0] }}</p>
+<form method="post">
+    <button name="action" value="hit">Hit</button>
+    <button name="action" value="stand">Stand</button>
+</form>
 '''
 
 end_game_template = '''
-<html>
-<body>
-    <!-- Game over interface -->
-    <pre>{{ logo }}</pre>
-    <p>Your final hand: {{ game_state.player_cards }} (Score: {{ game_state.player_score }})</p>
-    <p>Dealer's final hand: {{ game_state.dealer_cards }} (Score: {{ game_state.dealer_score }})</p>
-    <p>Result: {{ game_state.result }}</p>
-    <a href="/play">Play Again</a>
-</body>
-</html>
+<p>Your final hand: {{ game_state.player_cards }} (Score: {{ game_state.player_score }})</p>
+<p>Dealer's final hand: {{ game_state.dealer_cards }} (Score: {{ game_state.dealer_score }})</p>
+<p>Result: {{ game_state.result }}</p>
+<a href="/play">Play Again</a>
 '''
 
 if __name__ == '__main__':
