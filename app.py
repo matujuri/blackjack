@@ -1,4 +1,4 @@
-from flask import Flask, request, render_template_string, session, redirect, url_for
+from flask import Flask, request, render_template_string, session, redirect, url_for, send_from_directory
 from flask_babel import Babel, _
 from main import deal_card, calculate_score, compare
 from base_template import base_template
@@ -59,6 +59,13 @@ def change_language():
     selected_language = request.args.get('lang')
     session['language'] = selected_language
     return redirect(url_for('index'))
+
+
+@app.route('/background.jpeg')
+def background():
+    # Serve the background image with a cache-control header
+    # Cache for 1 hour
+    return send_from_directory('static', 'background.jpeg', cache_timeout=3600)
 
 
 @app.route('/')
