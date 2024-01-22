@@ -90,8 +90,8 @@ def play():
 
     dealer_first_card = _("Dealer's First Card")
     game_template = f'''
-    <p>{_('Your Cards')}: {game_state['player_cards']} ({_('Score')}: {game_state['player_score']})</p>
-    <p>{dealer_first_card}: {game_state['dealer_cards'][0]}</p>
+    <p><strong>{_('Your Cards')}: {game_state['player_cards']} ({_('Score')}: {game_state['player_score']})</strong></p>
+    <p><strong>{dealer_first_card}: {game_state['dealer_cards'][0]}</strong></p>
     <form method="post">
         <button name="action" value="hit">{_('Hit')}</button>
         <button name="action" value="stand">{_('Stand')}</button>
@@ -99,9 +99,9 @@ def play():
     '''
     dealer_final_hand = _("Dealer's final hand")
     end_game_template = f'''
-    <p>{_('Your final hand')}: {game_state['player_cards']} ({_('Score')}: {game_state['player_score']})</p>
-    <p>{_(dealer_final_hand)}: {game_state['dealer_cards']} ({_('Score')}: {game_state['dealer_score']})</p>
-    <p>{_('Result')}: {game_state['result']}</p>
+    <p><strong>{_('Your final hand')}: {game_state['player_cards']} ({_('Score')}: {game_state['player_score']})</strong></p>
+    <p><strong>{_(dealer_final_hand)}: {game_state['dealer_cards']} ({_('Score')}: {game_state['dealer_score']})</strong></p>
+    <p><strong>{_('Result')}: {game_state['result']}</strong></p>
     <a href="/play">{_('Play Again')}</a>
     '''
 
