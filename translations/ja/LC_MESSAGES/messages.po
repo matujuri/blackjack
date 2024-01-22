@@ -7,55 +7,82 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-01-22 15:19+0900\n"
-"PO-Revision-Date: 2024-01-22 15:19+0900\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language: ja\n"
+"POT-Creation-Date: 2024-01-22 16:52+0900\n"
+"PO-Revision-Date: 2024-01-22 17:05+0900\n"
+"Last-Translator: \n"
 "Language-Team: ja <LL@li.org>\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
+"Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 "Generated-By: Babel 2.14.0\n"
+"X-Generator: Poedit 3.4.2\n"
 
-#: app.py:48
+#: app.py:49
 msgid "Start Game"
 msgstr "ゲームを始める"
 
-#: app.py:77
+#: app.py:73
+msgid "Dealer's First Card"
+msgstr "ディーラーの最初のカード"
+
+#: app.py:75
 msgid "Your Cards"
 msgstr "あなたのカード"
 
-#: app.py:77 app.py:86 app.py:87
+#: app.py:75 app.py:84 app.py:85
 msgid "Score"
 msgstr "スコア"
 
 #: app.py:78
-msgid "Dealer's First Card"
-msgstr "ディーラーの最初のカード"
-
-#: app.py:80
 msgid "Hit"
 msgstr "ヒット"
 
-#: app.py:81
+#: app.py:79
 msgid "Stand"
 msgstr "スタンド"
 
-#: app.py:86
-msgid "Your final hand"
-msgstr "あなたの最終的な手札"
-
-#: app.py:87
+#: app.py:82
 msgid "Dealer's final hand"
 msgstr "ディーラーの最終的な手札"
 
-#: app.py:88
+#: app.py:84
+msgid "Your final hand"
+msgstr "あなたの最終的な手札"
+
+#: app.py:86
 msgid "Result"
 msgstr "結果"
 
-#: app.py:89
+#: app.py:87
 msgid "Play Again"
 msgstr "もう一度プレイ"
 
+#: main.py:30 main.py:39
+msgid "You went over. You lose"
+msgstr "あなたは超えました。あなたの負けです"
 
+#: main.py:33
+msgid "Draw"
+msgstr "引き分け"
+
+#: main.py:35
+msgid "Lose, opponent has Blackjack"
+msgstr "負け、相手はブラックジャックです"
+
+#: main.py:37
+msgid "Win with a Blackjack"
+msgstr "ブラックジャックで勝つ"
+
+#: main.py:41
+msgid "Opponent went over. You win"
+msgstr "相手が超えました。あなたの勝ちです"
+
+#: main.py:43
+msgid "You win"
+msgstr "あなたの勝ちです"
+
+#: main.py:45
+msgid "You lose"
+msgstr "あなたの負けです"

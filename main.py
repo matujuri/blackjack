@@ -1,3 +1,4 @@
+from flask_babel import _
 from art import logo
 import random
 
@@ -26,19 +27,19 @@ def calculate_score(cards):
 def compare(player_score, dealer_score):
     """check final scores and declare winner"""
     if player_score > 21 and dealer_score > 21:
-        return "You went over. You lose 😤"
+        return _("You went over. You lose") + " 😤"
 
     if player_score == dealer_score:
-        return "Draw 🙃"
+        return _("Draw") + " 🙃"
     elif dealer_score == 0:
-        return "Lose, opponent has Blackjack 😱"
+        return _("Lose, opponent has Blackjack") + " 😱"
     elif player_score == 0:
-        return "Win with a Blackjack 😎"
+        return _("Win with a Blackjack") + " 😎"
     elif player_score > 21:
-        return "You went over. You lose 😭"
+        return _("You went over. You lose") + " 😭"
     elif dealer_score > 21:
-        return "Opponent went over. You win 😁"
+        return _("Opponent went over. You win") + " 😁"
     elif player_score > dealer_score:
-        return "You win 😃"
+        return _("You win") + " 😃"
     else:
-        return "You lose 😤"
+        return _("You lose") + " 😤"

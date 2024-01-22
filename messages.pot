@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-01-22 15:19+0900\n"
+"POT-Creation-Date: 2024-01-22 16:52+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,43 +17,71 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.14.0\n"
 
-#: app.py:48
+#: app.py:49
 msgid "Start Game"
 msgstr ""
 
-#: app.py:77
+#: app.py:73
+msgid "Dealer's First Card"
+msgstr ""
+
+#: app.py:75
 msgid "Your Cards"
 msgstr ""
 
-#: app.py:77 app.py:86 app.py:87
+#: app.py:75 app.py:84 app.py:85
 msgid "Score"
 msgstr ""
 
 #: app.py:78
-msgid "Dealer's First Card"
-msgstr ""
-
-#: app.py:80
 msgid "Hit"
 msgstr ""
 
-#: app.py:81
+#: app.py:79
 msgid "Stand"
 msgstr ""
 
-#: app.py:86
-msgid "Your final hand"
-msgstr ""
-
-#: app.py:87
+#: app.py:82
 msgid "Dealer's final hand"
 msgstr ""
 
-#: app.py:88
+#: app.py:84
+msgid "Your final hand"
+msgstr ""
+
+#: app.py:86
 msgid "Result"
 msgstr ""
 
-#: app.py:89
+#: app.py:87
 msgid "Play Again"
+msgstr ""
+
+#: main.py:30 main.py:39
+msgid "You went over. You lose"
+msgstr ""
+
+#: main.py:33
+msgid "Draw"
+msgstr ""
+
+#: main.py:35
+msgid "Lose, opponent has Blackjack"
+msgstr ""
+
+#: main.py:37
+msgid "Win with a Blackjack"
+msgstr ""
+
+#: main.py:41
+msgid "Opponent went over. You win"
+msgstr ""
+
+#: main.py:43
+msgid "You win"
+msgstr ""
+
+#: main.py:45
+msgid "You lose"
 msgstr ""
 
