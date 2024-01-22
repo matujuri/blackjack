@@ -48,9 +48,14 @@ base_template = '''
             white-space: pre; /* フォーマットを保持する */
             overflow-x: auto; /* 必要に応じてスクロール可能にする */
         }
+        .background-image {
+            background-image: url('/static/images/background.jpeg');
+            background-size: contain;
+            # background-repeat: no-repeat;
+        }
     </style>
 </head>
-<body>
+<body class="background-image">
     <select id="languageSelect" onchange="changeLanguage()">
     <option value="en" {{ 'selected' if selected_language == 'en' else '' }}>English</option>
     <option value="ja" {{ 'selected' if selected_language == 'ja' else '' }}>日本語</option>
