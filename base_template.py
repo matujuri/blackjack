@@ -53,6 +53,10 @@ base_template = '''
             background-size: contain;
             # background-repeat: no-repeat;
         }
+        .text-container {
+            position: relative;
+            z-index: 1; /* Higher z-index value to bring text to the front */
+        }
     </style>
 </head>
 <body class="background-image">
@@ -62,7 +66,7 @@ base_template = '''
     <option value="zh" {{ 'selected' if selected_language == 'zh' else '' }}>中文</option>
     </select>
 
-    <div class="container">
+    <div class="container text-container">
         <pre>{{ logo }}</pre>
         <!-- コンテンツはここに入れる -->
         {{ content }}
