@@ -1,0 +1,59 @@
+# Translations template for PROJECT.
+# Copyright (C) 2024 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2024.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2024-01-22 15:19+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.14.0\n"
+
+#: app.py:48
+msgid "Start Game"
+msgstr ""
+
+#: app.py:77
+msgid "Your Cards"
+msgstr ""
+
+#: app.py:77 app.py:86 app.py:87
+msgid "Score"
+msgstr ""
+
+#: app.py:78
+msgid "Dealer's First Card"
+msgstr ""
+
+#: app.py:80
+msgid "Hit"
+msgstr ""
+
+#: app.py:81
+msgid "Stand"
+msgstr ""
+
+#: app.py:86
+msgid "Your final hand"
+msgstr ""
+
+#: app.py:87
+msgid "Dealer's final hand"
+msgstr ""
+
+#: app.py:88
+msgid "Result"
+msgstr ""
+
+#: app.py:89
+msgid "Play Again"
+msgstr ""
+

@@ -1,6 +1,5 @@
 from art import logo
 import random
-import os
 
 
 def deal_card():
@@ -90,8 +89,3 @@ def play_game():
     print(f"Your final hand: {player_cards}, final score: {player_score}")
     print(f"Dealer's final hand: {dealer_cards}, final score: {dealer_score}")
     print(compare(player_score, dealer_score))
-
-
-# while input("do you want to play black jack? 'yes' or 'no' ").lower() == "yes":
-#     os.system('clear')
-#     play_game()
