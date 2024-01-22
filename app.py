@@ -70,18 +70,19 @@ def play():
         session['game_state'] = initialize_game()
         game_state = session['game_state']
 
-    game_template = fr'''
+    dealer_first_card = _("Dealer's First Card")
+    game_template = f'''
     <p>{_('Your Cards')}: {game_state['player_cards']} ({_('Score')}: {game_state['player_score']})</p>
-    <p>{_('Dealer\'s First Card')}: {game_state['dealer_cards'][0]}</p>
+    <p>{dealer_first_card}: {game_state['dealer_cards'][0]}</p>
     <form method="post">
         <button name="action" value="hit">{_('Hit')}</button>
         <button name="action" value="stand">{_('Stand')}</button>
     </form>
     '''
-
-    end_game_template = fr'''
+    dealer_final_hand = _("Dealer's final hand")
+    end_game_template = f'''
     <p>{_('Your final hand')}: {game_state['player_cards']} ({_('Score')}: {game_state['player_score']})</p>
-    <p>{_('Dealer\'s final hand')}: {game_state['dealer_cards']} ({_('Score')}: {game_state['dealer_score']})</p>
+    <p>{_(dealer_final_hand)}: {game_state['dealer_cards']} ({_('Score')}: {game_state['dealer_score']})</p>
     <p>{_('Result')}: {game_state['result']}</p>
     <a href="/play">{_('Play Again')}</a>
     '''
