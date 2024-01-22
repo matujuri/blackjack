@@ -1,4 +1,4 @@
-from flask import Flask, request, render_template_string, session
+from flask import Flask, request, render_template_string, session, redirect, url_for
 from flask_babel import Babel, _
 from main import deal_card, calculate_score, compare
 from base_template import base_template
@@ -8,7 +8,7 @@ app = Flask(__name__)
 app.secret_key = 'your_secret_key'
 
 babel = Babel(
-    app, locale_selector=lambda: request.accept_languages.best_match(['en', 'ja', 'zh']))
+    app, locale_selector=lambda: session.get('language', request.accept_languages.best_match(['en', 'ja', 'zh'])))
 
 cards = [11, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10]
 
@@ -44,10 +44,28 @@ def update_game_state(game_state):
         game_state['result'] = compare(player_score, dealer_score)
 
 
+def get_selected_language():
+    if 'language' in session:
+        # 'language' key exists in the session dictionary
+        return session['language']
+    else:
+        # 'language' key doesn't exist in the session dictionary
+        return request.accept_languages.best_match(
+            ['en', 'ja', 'zh'])
+
+
+@app.route('/change_language')
+def change_language():
+    selected_language = request.args.get('lang')
+    session['language'] = selected_language
+    return redirect(url_for('index'))
+
+
 @app.route('/')
 def index():
+    selected_language = get_selected_language()
     content = f'<a href="/play">{_("Start Game")}</a>'
-    return base_template.replace('{{ logo }}', logo).replace('{{ content }}', content)
+    return render_template_string(base_template.replace('{{ logo }}', logo).replace('{{ content }}', content), selected_language=selected_language)
 
 
 @app.route('/play', methods=['GET', 'POST'])
@@ -87,10 +105,12 @@ def play():
     <a href="/play">{_('Play Again')}</a>
     '''
 
+    selected_language = get_selected_language()
+
     if game_state['game_over']:
-        return render_template_string(base_template.replace('{{ logo }}', logo).replace('{{ content }}', end_game_template))
+        return render_template_string(base_template.replace('{{ logo }}', logo).replace('{{ content }}', end_game_template), selected_language=selected_language)
     else:
-        return render_template_string(base_template.replace('{{ logo }}', logo).replace('{{ content }}', game_template))
+        return render_template_string(base_template.replace('{{ logo }}', logo).replace('{{ content }}', game_template), selected_language=selected_language)
 
 
 if __name__ == '__main__':

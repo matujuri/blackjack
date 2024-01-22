@@ -51,11 +51,23 @@ base_template = '''
     </style>
 </head>
 <body>
+    <select id="languageSelect" onchange="changeLanguage()">
+    <option value="en" {{ 'selected' if selected_language == 'en' else '' }}>English</option>
+    <option value="ja" {{ 'selected' if selected_language == 'ja' else '' }}>日本語</option>
+    <option value="zh" {{ 'selected' if selected_language == 'zh' else '' }}>中文</option>
+    </select>
+
     <div class="container">
         <pre>{{ logo }}</pre>
         <!-- コンテンツはここに入れる -->
         {{ content }}
     </div>
+    <script>
+    function changeLanguage() {
+        var selectedLanguage = document.getElementById('languageSelect').value;
+        window.location.href = '/change_language?lang=' + selectedLanguage;
+    }
+    </script>
 </body>
 </html>
 '''
