@@ -5,23 +5,28 @@ on:
     branches:
       - main
 
-jobs:
+jobs: 
   build-and-deploy:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
 
-    - name: Set up Python
-      uses: actions/setup-python@v2
-      with:
-        python-version: '3.x'
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.x'
 
-    - name: Install dependencies
-      run: |
-        pip install -r requirements.txt
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
 
-    - name: Generate .mo files
-      run: |
-        pybabel compile -d translations
+      - name: Compile translation files
+        run: |
+          pybabel compile -d translations
 
-    # その他のビルドやデプロイメントステップ
+      - name: Deploy to Render
+        uses: givemomentum/render-deploy@v1.5.1
+        with:
+          service_id: ${{ secrets.RENDER_SERVICE_ID }}
+          api_key: ${{ secrets.RENDER_API_KEY }}
+
