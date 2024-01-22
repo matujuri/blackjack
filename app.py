@@ -70,7 +70,7 @@ def play():
         session['game_state'] = initialize_game()
         game_state = session['game_state']
 
-    game_template = f'''
+    game_template = fr'''
     <p>{_('Your Cards')}: {game_state['player_cards']} ({_('Score')}: {game_state['player_score']})</p>
     <p>{_('Dealer\'s First Card')}: {game_state['dealer_cards'][0]}</p>
     <form method="post">
@@ -79,7 +79,7 @@ def play():
     </form>
     '''
 
-    end_game_template = f'''
+    end_game_template = fr'''
     <p>{_('Your final hand')}: {game_state['player_cards']} ({_('Score')}: {game_state['player_score']})</p>
     <p>{_('Dealer\'s final hand')}: {game_state['dealer_cards']} ({_('Score')}: {game_state['dealer_score']})</p>
     <p>{_('Result')}: {game_state['result']}</p>
