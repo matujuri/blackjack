@@ -61,11 +61,11 @@ def change_language():
     return redirect(url_for('index'))
 
 
-@app.route('/background.jpeg')
+@app.route('/static/images/background.jpeg')
 def background():
     # Serve the background image with a cache-control header
     # Cache for 1 hour
-    return send_from_directory('static', 'background.jpeg', cache_timeout=3600)
+    return send_from_directory('static', 'images/background.jpeg', max_age=3600)
 
 
 @app.route('/')
